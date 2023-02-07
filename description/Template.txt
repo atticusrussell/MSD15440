@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot xmls:xacro="http://ww.ros.org/wiki/xacro" name="robot">
+    <xacro:include filename="XXX.xacro" />
+    <!-- TEXT HERE -->
+
+</robot>
