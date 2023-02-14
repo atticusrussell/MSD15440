@@ -73,7 +73,7 @@
         </visual>
     </link>
 
-    <!-- TRNSMISSION --> <!--fix-->>
+    <!-- TRNSMISSION --> <!--fix, may not be needed...-->>
     <transmission name="rudder_trans">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="servo_joint">
