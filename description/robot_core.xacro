@@ -32,7 +32,8 @@
                 <box size="${hull_length} ${hull_width} ${hull_height}"/>
             </geometry>
         </collision>
-        <xacro:inertial_box mass="${CRAFT_mass}" x="0.1" y="0.0" z="0.5"/>
+		<!-- TODO define the mass here - using placeholder 1.5 kg -->
+        <xacro:inertial_box mass="1.5" x="0.1" y="0.0" z="0.5">
             <origin xyz="0.0 0.0 0.0" />
         </xacro:inertial_box>
 	</link>
@@ -71,7 +72,7 @@
         <origin xyz="0.2 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <!-- "Right is clockwise" -->
         <axis xyz="0.0 1.0 0.0"/>
-    <joint/>
+    </joint>
 
     <link name="servo">
         <visual>
