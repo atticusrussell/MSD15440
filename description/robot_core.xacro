@@ -1,44 +1,44 @@
 <?xml version="1.0"?>
-<robot xmls:xacro="http://ww.ros.org/wiki/xacro" >
+<robot xmlns:xacro="http://ww.ros.org/wiki/xacro" >
     <!-- FILE INCLUSION ZONE -->>
     <xacro:include filename="materials.xacro"/>
     <xacro:include filename="inertial_macros.xacro"/> <!--from the articulated robotics URDF tutorial-->>
     
     <!-- Starting point of the CRAFT -->
-    <<link name="base_link"> 
+    <link name="base_link"> 
 
     </link>
 
     <!-- HULL LINK ===========================================-->
-    <<joint name="hull_joint" type="fixed">
+    <joint name="hull_joint" type="fixed">
         <parent link="base_link"/>
         <child link="hull"/>
-        <<origin xyz="0.1 0.0 0.0"/>
+        <origin xyz="0.1 0.0 0.0"/>
     </joint>
 
     <link name="hull">
-        <<visual>
+        <visual>
             <!--make the z how far it should flaot above the simuilated water-->
-            <<origin xyz="0.1 0.0 0.5" rpy = "0.0 0.0 0.0"/>
-            <<geometry>
-                <<box size="${hull_length} ${hull_width} ${hull_height}"/>
+            <origin xyz="0.1 0.0 0.5" rpy = "0.0 0.0 0.0"/>
+            <geometry>
+                <box size="${hull_length} ${hull_width} ${hull_height}"/>
             </geometry>
             <material name="white"/>
         </visual>
-        <<collision>
+        <collision>
             <!-- for now, make the colission geomentry the same as the basic box shape -->
-            <<origin xyz="0.1 0.0 0.5" rpy = "0.0 0.0 0.0"/>
-            <<geometry>
-                <<box size="${hull_length} ${hull_width} ${hull_height}"/>
+            <origin xyz="0.1 0.0 0.5" rpy = "0.0 0.0 0.0"/>
+            <geometry>
+                <box size="${hull_length} ${hull_width} ${hull_height}"/>
             </geometry>
         </collision>
         <xacro:inertial_box mass="${CRAFT_mass}" x="0.1" y="0.0" z="0.5"/>
-            <origin xyz="0.0 0.0 0.0"
+            <origin xyz="0.0 0.0 0.0" />
         </xacro:inertial_box>
-    <link/>
+	</link>
 
     <gazebo reference="hull">
-    <material>Gazebo/orange</material> <!--Do we need to add a materuak section to the launch file now?-->
+    	<material>Gazebo/orange</material> <!--Do we need to add a materuak section to the launch file now?-->
     </gazebo>
 
     <!-- MOTOR LINK ===========================================-->>
@@ -46,12 +46,12 @@
     <joint name="motor_joint" type="continuous">
         <parent link="base_link"/>
         <child link="motor"/>
-        <<origin xyz="0.2 0.0 0.0" rpy="-${pi/2} 0.0 0.0"/>
+        <origin xyz="0.2 0.0 0.0" rpy="-${pi/2} 0.0 0.0"/>
         <!-- "CW forward CCW backward" -Eric -->
-        <<axis xyz="0.0 0.0 1.0"/>
-    <joint/>
+        <axis xyz="0.0 0.0 1.0"/>
+    </joint>
 
-    <<link name="motor">
+    <link name="motor">
         <visual>
             <geometry>
                 <cylinder radius="0.15" length="0.3"/>
@@ -61,19 +61,19 @@
     </link>
 
     <gazebo reference="motor">
-    <material>Gazebo/blue</material> 
+    	<material>Gazebo/blue</material> 
     </gazebo>
 
     <!-- SERVO LINK ===========================================-->>
     <joint name="servo_joint" type="continuous">    
         <parent link="base_link"/>
         <child link="servo"/>
-        <<origin xyz="0.2 0.0 0.0" rpy="0.0 0.0 0.0"/>
+        <origin xyz="0.2 0.0 0.0" rpy="0.0 0.0 0.0"/>
         <!-- "Right is clockwise" -->
-        <<axis xyz="0.0 1.0 0.0"/>
+        <axis xyz="0.0 1.0 0.0"/>
     <joint/>
 
-    <<link name="servo">
+    <link name="servo">
         <visual>
             <geometry>
                 <cylinder radius="0.2" length="0.1"/>
@@ -83,7 +83,7 @@
     </link>
 
     <gazebo reference="servo">
-    <material>Gazebo/green</material> 
+    	<material>Gazebo/green</material> 
     </gazebo>
 
     <!-- TRNSMISSION ===========================================--> <!--fix, may not be needed...-->>
