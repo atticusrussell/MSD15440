@@ -9,7 +9,7 @@
 
     </link>
 
-    <!-- HULL LINK -->
+    <!-- HULL LINK ===========================================-->
     <<joint name="hull_joint" type="fixed">
         <parent link="base_link"/>
         <child link="hull"/>
@@ -26,6 +26,7 @@
             <material name="white"/>
         </visual>
         <<collision>
+            <!-- for now, make the colission geomentry the same as the basic box shape -->
             <<origin xyz="0.1 0.0 0.5" rpy = "0.0 0.0 0.0"/>
             <<geometry>
                 <<box size="${hull_length} ${hull_width} ${hull_height}"/>
@@ -36,7 +37,11 @@
         </xacro:inertial_box>
     <link/>
 
-    <!-- MOTOR LINK -->>
+    <gazebo reference="hull">
+    <material>Gazebo/orange</material> <!--Do we need to add a materuak section to the launch file now?-->
+    </gazebo>
+
+    <!-- MOTOR LINK ===========================================-->>
         <!--the motor and servo link will probably need the joint state publisher gui to be seen-->
     <joint name="motor_joint" type="continuous">
         <parent link="base_link"/>
@@ -55,13 +60,17 @@
         </visual>
     </link>
 
-    <!-- SERVO LINK -->>
+    <gazebo reference="motor">
+    <material>Gazebo/blue</material> 
+    </gazebo>
+
+    <!-- SERVO LINK ===========================================-->>
     <joint name="servo_joint" type="continuous">    
         <parent link="base_link"/>
         <child link="servo"/>
         <<origin xyz="0.2 0.0 0.0" rpy="0.0 0.0 0.0"/>
-        <!-- "CW forward CCW backward" -Eric -->
-        <<axis xyz="0.0 0.0 1.0"/>
+        <!-- "Right is clockwise" -->
+        <<axis xyz="0.0 1.0 0.0"/>
     <joint/>
 
     <<link name="servo">
@@ -73,7 +82,11 @@
         </visual>
     </link>
 
-    <!-- TRNSMISSION --> <!--fix, may not be needed...-->>
+    <gazebo reference="servo">
+    <material>Gazebo/green</material> 
+    </gazebo>
+
+    <!-- TRNSMISSION ===========================================--> <!--fix, may not be needed...-->>
     <transmission name="rudder_trans">
         <type>transmission_interface/SimpleTransmission</type>
         <joint name="servo_joint">
