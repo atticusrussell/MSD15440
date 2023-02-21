@@ -23,7 +23,7 @@
             <geometry>
                 <box size="${hull_length} ${hull_width} ${hull_height}"/>
             </geometry>
-            <material name="orange"/>
+            <material name="white"/>
         </visual>
         <collision>
             <!-- for now, make the colission geomentry the same as the basic box shape -->
@@ -32,16 +32,14 @@
                 <box size="${hull_length} ${hull_width} ${hull_height}"/>
             </geometry>
         </collision>
-		<!-- TODO define the mass here - using placeholder 1.5 kg, add CRAFT_mass to mass when not chencking -->
-        <xacro:inertial_box mass="1.5" x="${hull_length}" y="${hull_width}" z="${hull_height}">
-            <origin xyz="0.1 0.0 0.0" rpy = "0.0 0.0 0.0"/>
+		<!-- TODO define the mass here - using placeholder 1.5 kg -->
+        <xacro:inertial_box mass="1.5" x="0.1" y="0.0" z="0.5">
+            <origin xyz="0.0 0.0 0.0" />
         </xacro:inertial_box>
 	</link>
 
     <gazebo reference="hull">
-    	<material>Gazebo/Orange</material> <!--Do we need to add a material section to the launch file now?-->
-        <mu1 = "0.0001"/>
-        <mu2 = "0.0001"/> <!--these are both needed for the lack of friction-->
+    	<material>Gazebo/orange</material> <!--Do we need to add a materuak section to the launch file now?-->
     </gazebo>
 
     <!-- MOTOR LINK ===========================================-->>
@@ -57,14 +55,14 @@
     <link name="motor">
         <visual>
             <geometry>
-                <cylinder radius="${motor_radius}" length="${motor_length}"/>
+                <cylinder radius="0.15" length="0.3"/>
             </geometry>
             <material name="green"/>
         </visual>
     </link>
 
     <gazebo reference="motor">
-    	<material>Gazebo/green</material> 
+    	<material>Gazebo/blue</material> 
     </gazebo>
 
     <!-- SERVO LINK ===========================================-->>
@@ -72,21 +70,21 @@
         <parent link="base_link"/>
         <child link="servo"/>
         <origin xyz="0.2 0.0 0.0" rpy="0.0 0.0 0.0"/>
-        <!-- "Turning right is clockwise" -->
+        <!-- "Right is clockwise" -->
         <axis xyz="0.0 1.0 0.0"/>
     </joint>
 
     <link name="servo">
         <visual>
             <geometry>
-                <cylinder radius="${servo_radius}" length="${servo_length}"/>
+                <cylinder radius="0.2" length="0.1"/>
             </geometry>
-            <material name="white"/>
+            <material name="orange"/>
         </visual>
     </link>
 
     <gazebo reference="servo">
-    	<material>Gazebo/White</material> 
+    	<material>Gazebo/green</material> 
     </gazebo>
 
     <!-- TRNSMISSION ===========================================--> <!--fix, may not be needed...-->>
@@ -139,7 +137,7 @@
         <origin xyz="-${antenna_spacing} 0.0 ${antenna_spacing}"/> <!--I think base_link is centered on the otooom, so the nase antenna center should be UP and more forward-->
     </joint>
 
-        <!--Antenna Antennai Extrusions-->
+    <!--Antenna Antenna Extrusions-->
     <link name="antenna_1">
         <visual>
             <geometry>
@@ -172,19 +170,5 @@
             <material name="blue"/>
         </visual>
     </link>
-
-        <!--Gazebo Colors-->
-    <gazebo reference="antenna_1">
-    	<material>Gazebo/Blue</material> 
-    </gazebo>
-    <gazebo reference="antenna_2">
-    	<material>Gazebo/Blue</material> 
-    </gazebo>
-    <gazebo reference="antenna_3">
-    	<material>Gazebo/Blue</material> 
-    </gazebo>
-    <gazebo reference="antenna_4">
-    	<material>Gazebo/Blue</material> 
-    </gazebo>
 
 </robot>
