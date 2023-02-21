@@ -40,6 +40,8 @@
 
     <gazebo reference="hull">
     	<material>Gazebo/Orange</material> <!--Do we need to add a material section to the launch file now?-->
+        <mu1 = "0.0001"/>
+        <mu2 = "0.0001"/> <!--these are both needed for the lack of friction-->
     </gazebo>
 
     <!-- MOTOR LINK ===========================================-->>
