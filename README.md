@@ -1,9 +1,4 @@
-## Robot Package Template
-
-This is a GitHub template. You can make your own copy by clicking the green "Use this template" button.
-
-It is recommended that you keep the repo/package name the same, but if you do change it, ensure you do a "Find all" using your IDE (or the built-in GitHub IDE by hitting the `.` key) and rename all instances of `my_bot` to whatever your project's name is.
-
-Note that each directory currently has at least one file in it to ensure that git tracks the files (and, consequently, that a fresh clone has direcctories present for CMake to find). These example files can be removed if required (and the directories can be removed if `CMakeLists.txt` is adjusted accordingly).
-
-This is for the RIT MSD 2022-2023 NASA SAVER Competition
+# RIT MSD team 15440 source code repository 
+Created by Multidisciplinary Senior Design team 15440 at Rochester Institute of Technology.  
+The goal of this project is to compete in the NASA Micro-g NExT SAVER (Surface Autonomous Vehicle for Emergeny Response) challenge.  
+All code is a work in progress.
