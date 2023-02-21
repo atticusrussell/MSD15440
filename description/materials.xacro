@@ -1,19 +1,19 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ww.ros.org/wiki/xacro" >
     <!-- Color Material Section -->>
-    <material name="white">             <!--hull color-->
+    <material name="white">
         <color rgba="1 1 1 1"/>
     </material>
 
-    <material name="orange">            <!--servo color-->
+    <material name="orange">
         <color rgba="1 0.5 0 1"/>
     </material>
 
-    <material name="blue">              <!--antenna color-->
+    <material name="blue">
         <color rgba="0 0 1 1"/>
     </material>
 
-    <material name="green">             <!--motor color-->
+    <material name="green">
         <color rgba="0 1 .1 1"/>
     </material>
 
@@ -31,11 +31,5 @@
 
     <xacro:property name="CRAFT_mass" value="2.5" />
 
-    <!-- ANTENNA VARIABLES -->
-        <!-- Not Final Values, need to calculate these with Tyler -->
-    <xacro:property name="lamda" value="0.125" />
-    <xacro:property name="antenna_height" value="0.225" />
-    <xacro:property name="antenna_spacing" value="0.250" /> <!--use for both x and z((?), is it y? its the flat coordinates, not the height)-->
-    <xacro:property name="antenna_center_offset" value="0.110" /> <!--offset for antenna center joint to be in correct destination-->
-    <xacro:property name="antenna_radius" value="0.075" />
+    
 </robot>
