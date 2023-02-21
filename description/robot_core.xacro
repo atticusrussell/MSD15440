@@ -98,4 +98,77 @@
         </actuator>
     </transmission>
 
+
+    <!-- ANTENNA SECTION ============================================================================-->
+    <!-- the antennas are position as following: 
+                    Front
+                      ^
+            Left |  4   1  |  Right
+                 |  3   2  |
+                    _____
+                     Back
+            Y
+            |_X
+          Z/
+    -->
+    <joint name="antenna_center_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="antenna_center"/>
+        <origin xyz="${hull_length/2 - antenna_center_offset} ${hull_length} 0.0"/> <!--I think base_link is centered on the otooom, so the nase antenna center should be UP and more forward-->
+    </joint>
+    <joint name="antenna_1_joint" type="fixed">
+        <parent link="antenna_center"/>
+        <child link="antenna_1"/>
+        <origin xyz="${antenna_spacing} 0.0 ${antenna_spacing}"/> <!--I think base_link is centered on the otooom, so the nase antenna center should be UP and more forward-->
+    </joint>
+    <joint name="antenna_2_joint" type="fixed">
+        <parent link="antenna_center"/>
+        <child link="antenna_2"/>
+        <origin xyz="${antenna_spacing} 0.0 -${antenna_spacing}"/> <!--I think base_link is centered on the otooom, so the nase antenna center should be UP and more forward-->
+    </joint>
+    <joint name="antenna_3_joint" type="fixed">
+        <parent link="antenna_center"/>
+        <child link="antenna_3"/>
+        <origin xyz="-${antenna_spacing} 0.0 -${antenna_spacing}"/> <!--I think base_link is centered on the otooom, so the nase antenna center should be UP and more forward-->
+    </joint>
+    <joint name="antenna_4_joint" type="fixed">
+        <parent link="antenna_center"/>
+        <child link="antenna_4"/>
+        <origin xyz="-${antenna_spacing} 0.0 ${antenna_spacing}"/> <!--I think base_link is centered on the otooom, so the nase antenna center should be UP and more forward-->
+    </joint>
+
+    <!--Antenna Antenna Extrusions-->
+    <link name="antenna_1">
+        <visual>
+            <geometry>
+                <cylinder radius="${antenna_radius}" length="${antenna_height}"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+    </link>
+    <link name="antenna_2">
+        <visual>
+            <geometry>
+                <cylinder radius="${antenna_radius}" length="${antenna_height}"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+    </link>
+    <link name="antenna_3">
+        <visual>
+            <geometry>
+                <cylinder radius="${antenna_radius}" length="${antenna_height}"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+    </link>
+    <link name="antenna_4">
+        <visual>
+            <geometry>
+                <cylinder radius="${antenna_radius}" length="${antenna_height}"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+    </link>
+
 </robot>
