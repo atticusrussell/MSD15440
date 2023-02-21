@@ -31,6 +31,11 @@
 
     <xacro:property name="CRAFT_mass" value="2.5" />
 
+    <xacro:property name="motor_radius" value="0.15" />
+    <xacro:property name="servo_radius" value="0.24" />
+    <xacro:property name="motor_length" value="0.65" />
+    <xacro:property name="servo_length" value="0.20" />
+
     <!-- ANTENNA VARIABLES -->
         <!-- Not Final Values, need to calculate these with Tyler -->
     <xacro:property name="lamda" value="0.125" />

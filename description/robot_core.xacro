@@ -55,7 +55,7 @@
     <link name="motor">
         <visual>
             <geometry>
-                <cylinder radius="0.15" length="0.3"/>
+                <cylinder radius="${motor_radius}" length="${motor_length}"/>
             </geometry>
             <material name="green"/>
         </visual>
@@ -70,14 +70,14 @@
         <parent link="base_link"/>
         <child link="servo"/>
         <origin xyz="0.2 0.0 0.0" rpy="0.0 0.0 0.0"/>
-        <!-- "Right is clockwise" -->
+        <!-- "Turning right is clockwise" -->
         <axis xyz="0.0 1.0 0.0"/>
     </joint>
 
     <link name="servo">
         <visual>
             <geometry>
-                <cylinder radius="0.2" length="0.1"/>
+                <cylinder radius="${servo_radius}" length="${servo_length}"/>
             </geometry>
             <material name="white"/>
         </visual>
