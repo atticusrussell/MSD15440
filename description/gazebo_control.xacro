@@ -3,26 +3,26 @@
     <gazebo>
         <plugin name="diff_drive" filename ="libgazebo_ros_diff_drive.so">
             <!--Part Info-->
-            <CRAFT_motor_joint>motor_joint<CRAFT_motor_joint/>
-            <CRAFT_servo_joint>servo_joint<CRAFT_servo_joint/>
-            <motor_diameter>${2 * motor_radius}<motor_diameter/>
-            <servo_diameter>${2 * servo_radius}<servo_diameter/><!--this may be the wrong way to refernece a xacro porperty for what I need-->
+            <CRAFT_motor_joint>motor_joint</CRAFT_motor_joint>
+            <CRAFT_servo_joint>servo_joint</CRAFT_servo_joint>
+            <motor_diameter>${2 * motor_radius}</motor_diameter>
+            <servo_diameter>${2 * servo_radius}</servo_diameter><!--this may be the wrong way to refernece a xacro porperty for what I need-->
 
             <!-- Limits -->
                 <!--fix these values-->
-            <max_motor_torque>200<max_motor_torque/>
-            <max_motor_acceleration>10.0<max_motor_acceleration/>
+            <max_motor_torque>200</max_motor_torque>
+            <max_motor_acceleration>10.0</max_motor_acceleration>
 
-            <max_servo_torque>200<max_servo_torque/>
-            <max_servo_acceleration>10.0<max_servo_acceleration/>
+            <max_servo_torque>200</max_servo_torque>
+            <max_servo_acceleration>10.0</max_servo_acceleration>
 
             <!-- Outputs -->
-            <odometry_frame>odom<odometry_frame/>
-            <robot_base_frame>base_link<robot_base_frame/>
+            <odometry_frame>odom</odometry_frame>
+            <robot_base_frame>base_link</robot_base_frame>
 
-            <publish_odom>true<publish_odom/>
-            <publish_odom_tf>true<publish_odom_tf/>
-            <publish_wheel_tf>true<publish_wheel_tf/><!--I think this will need to be changed-->
+            <publish_odom>true</publish_odom>
+            <publish_odom_tf>true</publish_odom_tf>
+            <publish_wheel_tf>true</publish_wheel_tf><!--I think this will need to be changed-->
 
         <plugin/>
     <gazebo/>

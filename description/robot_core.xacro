@@ -32,8 +32,8 @@
                 <box size="${hull_length} ${hull_width} ${hull_height}"/>
             </geometry>
         </collision>
-		<!-- TODO define the mass here - using placeholder 1.5 kg -->
-        <xacro:inertial_box mass="${CRAFT_mass}" x="${hull_length}" y="${hull_width}" z="${hull_height}">
+		<!-- TODO define the mass here - using placeholder 1.5 kg, add CRAFT_mass to mass when not chencking -->
+        <xacro:inertial_box mass="1.5" x="${hull_length}" y="${hull_width}" z="${hull_height}">
             <origin xyz="0.1 0.0 0.0" rpy = "0.0 0.0 0.0"/>
         </xacro:inertial_box>
 	</link>
