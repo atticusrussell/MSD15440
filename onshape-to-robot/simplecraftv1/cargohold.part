@@ -1,0 +1,13 @@
+{
+    "configuration": "default",
+    "documentId": "3860fa0fb5d5ad1a7d790457",
+    "documentMicroversion": "5d536b225f198125aa30d482",
+    "elementId": "ef165c3f969eeeb9ba58f22f",
+    "fullConfiguration": "default",
+    "id": "Mh6cUj6AE1Q7CqFr1",
+    "isStandardContent": false,
+    "name": "cargoHold <10>",
+    "partId": "JHD",
+    "suppressed": false,
+    "type": "Part"
+}

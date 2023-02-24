@@ -1,0 +1,7 @@
+{
+    "documentId": "3860fa0fb5d5ad1a7d790457",
+    "outputFormat": "urdf",
+	"assemblyName": "Robot",
+	"addDummyBaseLink": "true",
+	"packageName": "msd_bot"
+}

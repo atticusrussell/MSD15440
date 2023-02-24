@@ -1,0 +1,13 @@
+{
+    "configuration": "default",
+    "documentId": "3860fa0fb5d5ad1a7d790457",
+    "documentMicroversion": "5d536b225f198125aa30d482",
+    "elementId": "dffeefc704bf840d5d636cab",
+    "fullConfiguration": "default",
+    "id": "MatA9Z+kAqmmB6enP",
+    "isStandardContent": false,
+    "name": "brushlessMotor <21>",
+    "partId": "JFD",
+    "suppressed": false,
+    "type": "Part"
+}

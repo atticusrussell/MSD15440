@@ -1,0 +1,13 @@
+{
+    "configuration": "default",
+    "documentId": "3860fa0fb5d5ad1a7d790457",
+    "documentMicroversion": "5d536b225f198125aa30d482",
+    "elementId": "a02cfa3d19cf1c363b87ffc5",
+    "fullConfiguration": "default",
+    "id": "MmqKKFPR0YkZLReWK",
+    "isStandardContent": false,
+    "name": "servoMount <18>",
+    "partId": "JSD",
+    "suppressed": false,
+    "type": "Part"
+}
