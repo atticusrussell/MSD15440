@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- 
+    _____________________________________________________________________
+        include this file into: /description/hyperdog.urdf.xacro 
+        using following line: 
+                    <xacro:include filename="hyperdog_urdf_joints.xacro" /> 
+    _____________________________________________________________________ -->
+	<joint name="base_link_to_base" type="fixed">
+		<parent link="base_link" />
+		<child link="staticrobot" />
+		<origin rpy="0.0 0 0" xyz="0 0 0" />
+	</joint>
+
+	<!-- *********  propeller  ********* -->
+	<joint name="propeller_shaft" type="revolute">
+		<origin xyz="0.0819412 1.169 0.338466" rpy="1.5708 -1.02461e-33 -3.55271e-15" />
+		<parent link="staticrobot" />
+		<child link="propeller" />
+		<axis xyz="0 0 1" />
+		<limit effort="1" velocity="20" />
+		<joint_properties friction="0.0" />
+	</joint>
+
+    <!-- *********  servo  ********* -->
+	<joint name="servo_rudder" type="revolute">
+		<origin xyz="0.0819412 1.21345 0.560081" rpy="7.78435e-16 6.85351e-15 0.0697974" />
+		<parent link="staticrobot" />
+		<child link="rudder" />
+		<axis xyz="0 0 1" />
+		<limit effort="1" velocity="20" />
+		<joint_properties friction="0.0" />
+	</joint>
+
+</robot>

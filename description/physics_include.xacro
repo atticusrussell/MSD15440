@@ -2,7 +2,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
 	<!-- Include meshes -->
-	<xacro:macro name="30degsplit_mesh">
+	<xacro:macro name="thirtydegsplitter_mesh">
         <mesh filename="file://$(find msd_bot)/meshes/30degsplitter.stl" scale="0.001 0.001 0.001"/>
     </xacro:macro>
 
@@ -58,7 +58,7 @@
 		<mesh filename="file://$(find msd_bot)/meshes/sidedowel2.stl" scale="0.001 0.001 0.001"/>
 	</xacro:macro>
 
-	<xacro:macro name="vdowelconnector_mesh">
+	<xacro:macro name="vdowel_mesh">
 		<mesh filename="file://$(find msd_bot)/meshes/vdowelconnector.stl" scale="0.001 0.001 0.001"/>
 	</xacro:macro>
 

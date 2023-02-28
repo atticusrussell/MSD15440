@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="robot">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="msd_bot">
 
-    <xacro:include filename="robot_core.xacro" />
+    <!-- ***************  CONFIGURE ROBOT'S LINKS  *******************-->
+   
+    <xacro:include filename="robot_urdf_links.xacro" /> 
+
+    <!-- ***************  CONFIGURE ROBOT'S JOINTS  *******************-->
+    <xacro:include filename="hyperdog_urdf_joints.xacro" /> 
 
 </robot>
