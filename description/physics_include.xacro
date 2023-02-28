@@ -1,10 +1,70 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
+	<!-- Include meshes -->
+	<xacro:macro name="30degsplit_mesh">
+        <mesh filename="file://$(find msd_bot)/meshes/30degsplitter.stl" scale="0.001 0.001 0.001"/>
+    </xacro:macro>
+
+	<xacro:macro name="antenna_mesh">
+        <mesh filename="file://$(find msd_bot)/meshes/antenna.stl" scale="0.001 0.001 0.001"/>
+    </xacro:macro>
+
+	<xacro:macro name="basedowel_mesh">
+        <mesh filename="file://$(find msd_bot)/meshes/basedowel.stl" scale="0.001 0.001 0.001"/>
+    </xacro:macro>
+
+	<xacro:macro name="brushlessmotor_mesh">
+		<mesh filename="file://$(find msd_bot)/meshes/brushlessmotor.stl" scale="0.001 0.001 0.001"/>
+	</xacro:macro>
+
+    <xacro:macro name="cargohold_mesh">
+        <mesh filename="file://$(find msd_bot)/meshes/cargohold.stl" scale="0.001 0.001 0.001"/>
+    </xacro:macro>
+
+    <xacro:macro name="hull_mesh">
+        <mesh filename="file://$(find msd_bot)/meshes/hull.stl" scale="0.001 0.001 0.001"/>
+    </xacro:macro>
+
+	<xacro:macro name="hullcover_mesh">
+		<mesh filename="file://$(find msd_bot)/meshes/hullcover.stl" scale="0.001 0.001 0.001"/>
+	</xacro:macro>
+
+	<xacro:macro name="propeller_mesh">
+		<mesh filename="file://$(find msd_bot)/meshes/propeller.stl" scale="0.001 0.001 0.001"/>
+	</xacro:macro>
+
+	<xacro:macro name="rudder_mesh">
+		<mesh filename="file://$(find msd_bot)/meshes/rudder.stl" scale="0.001 0.001 0.001"/>
+	</xacro:macro>
+
+	<xacro:macro name="rudderbottommount_mesh">
+		<mesh filename="file://$(find msd_bot)/meshes/rudderbottommount.stl" scale="0.001 0.001 0.001"/>
+	</xacro:macro>
+
+	<xacro:macro name="servo_mesh">
+		<mesh filename="file://$(find msd_bot)/meshes/servo.stl" scale="0.001 0.001 0.001"/>
+	</xacro:macro>
+
+	<xacro:macro name="servomount_mesh">
+		<mesh filename="file://$(find msd_bot)/meshes/servomount.stl" scale="0.001 0.001 0.001"/>
+	</xacro:macro>
+
+	<xacro:macro name="sidedowel_mesh">
+		<mesh filename="file://$(find msd_bot)/meshes/sidedowel.stl" scale="0.001 0.001 0.001"/>
+	</xacro:macro>
+
+	<xacro:macro name="sidedowel2_mesh">
+		<mesh filename="file://$(find msd_bot)/meshes/sidedowel2.stl" scale="0.001 0.001 0.001"/>
+	</xacro:macro>
+
+	<xacro:macro name="vdowelconnector_mesh">
+		<mesh filename="file://$(find msd_bot)/meshes/vdowelconnector.stl" scale="0.001 0.001 0.001"/>
+	</xacro:macro>
+
+
     <!-- Specify some standard inertial calculations https://en.wikipedia.org/wiki/List_of_moments_of_inertia -->
     <!-- These make use of xacro's mathematical functionality -->
-
-    <!-- taken from articuilated robotics -->
 
     <xacro:macro name="inertial_sphere" params="mass radius *origin">
         <inertial>
