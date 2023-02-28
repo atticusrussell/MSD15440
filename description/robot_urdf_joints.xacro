@@ -13,18 +13,10 @@
 		<origin rpy="0.0 0 0" xyz="0 0 0" />
 	</joint>
 
-	<!-- *********  propeller  ********* -->
-	<joint name="propeller_shaft" type="revolute">
-		<origin xyz="0.0819412 1.169 0.338466" rpy="1.5708 -1.02461e-33 -3.55271e-15" />
-		<parent link="staticrobot" />
-		<child link="propeller" />
-		<axis xyz="0 0 1" />
-		<limit effort="1" velocity="20" />
-		<joint_properties friction="0.0" />
-	</joint>
+</robot>
 
     <!-- *********  servo  ********* -->
-	<joint name="servo_rudder" type="revolute">
+	<!-- <joint name="servo_rudder" type="revolute">
 		<origin xyz="0.0819412 1.21345 0.560081" rpy="7.78435e-16 6.85351e-15 0.0697974" />
 		<parent link="staticrobot" />
 		<child link="rudder" />
@@ -33,4 +25,4 @@
 		<joint_properties friction="0.0" />
 	</joint>
 
-</robot>
+</robot> -->

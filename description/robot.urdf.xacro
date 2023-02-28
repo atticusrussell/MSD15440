@@ -2,10 +2,12 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="msd_bot">
 
     <!-- ***************  CONFIGURE ROBOT'S LINKS  *******************-->
-   
     <xacro:include filename="robot_urdf_links.xacro" /> 
 
     <!-- ***************  CONFIGURE ROBOT'S JOINTS  *******************-->
-    <xacro:include filename="hyperdog_urdf_joints.xacro" /> 
+    <xacro:include filename="robot_urdf_joints.xacro" /> 
+
+	<!-- ***************  provide info for Gz  *******************-->
+	<xacro:include filename="robot_gazebo.xacro" /> 
 
 </robot>

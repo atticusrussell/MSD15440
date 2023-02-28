@@ -12,22 +12,39 @@
 
 	<link name="base_link"></link>
 
-	<link name="staticrobot">
+	<link name="hull">
+		<visual>
+			<origin xyz="0.0819412 0.783555 0.478166" rpy="0 -0 0" />
+			<geometry>
+				<xacro:hull_mesh></xacro:hull_mesh>
+			</geometry>
+			<material name="hull_material">
+				<color rgba="0.498039 0.498039 0.498039 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0.0819412 0.783555 0.478166" rpy="0 -0 0" />
+			<geometry>
+				<xacro:hull_mesh></xacro:hull_mesh>
+			</geometry>
+			<material name="hull_material">
+				<color rgba="0.498039 0.498039 0.498039 1.0" />
+			</material>
+		</collision>
+	</link>
+
+</robot>
+
+	<!-- <link name="staticrobot">
 		<visual>
 			<origin xyz="-0.0760565 1.12963 0.380489" rpy="0.610865 -1.66533e-16 1.5708" />
 			<geometry>
-				<xacro:vdowelconnector_mesh></xacro:vdowelconnector_mesh>
+				<xacro:vdowel_mesh></xacro:vdowel_mesh>
 			</geometry>
 			<material name="vdowelconnector_material">
 				<color rgba="0.972549 0.529412 0.00392157 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="-0.0760565 1.12963 0.380489" rpy="0.610865 -1.66533e-16 1.5708" />
-			<geometry>
-				<xacro:vdowelconnector_mesh></xacro:vdowelconnector_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.234341 1.0166 0.558811" rpy="0 -0 0" />
@@ -38,12 +55,6 @@
 				<color rgba="0.4 0.388235 0.34902 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.234341 1.0166 0.558811" rpy="0 -0 0" />
-			<geometry>
-				<xacro:antenna_mesh></xacro:antenna_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.0819412 1.1436 0.249566" rpy="0 3.15544e-30 -3.14159" />
@@ -54,12 +65,6 @@
 				<color rgba="0.498039 0.498039 0.498039 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.0819412 1.1436 0.249566" rpy="0 3.15544e-30 -3.14159" />
-			<geometry>
-				<mesh filename="package://msd_bot/rudderbottommount.stl" />
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.0719412 1.22345 0.602081" rpy="-1.5708 6.8762e-15 -1.61338e-29" />
@@ -70,12 +75,6 @@
 				<color rgba="0.501961 0.501961 0.501961 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.0719412 1.22345 0.602081" rpy="-1.5708 6.8762e-15 -1.61338e-29" />
-			<geometry>
-				<xacro:servo_mesh></xacro:servo_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.0819412 0.783555 0.478166" rpy="0 -0 0" />
@@ -105,12 +104,6 @@
 				<color rgba="0.647059 0.647059 0.647059 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.0819412 1.11217 0.260168" rpy="0 -0 3.14159" />
-			<geometry>
-				<xacro:thirtydegsplitter_mesh></xacro:thirtydegsplitter_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.0819412 0.788 0.554366" rpy="0 -0 0" />
@@ -121,12 +114,6 @@
 				<color rgba="0.8 0.776471 0.713725 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.0819412 0.788 0.554366" rpy="0 -0 0" />
-			<geometry>
-				<xacro:hullcover_mesh></xacro:hullcover_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="-0.0708549 1.12963 0.376847" rpy="2.53073 -0 -1.5708" />
@@ -137,12 +124,6 @@
 				<color rgba="0.941176 0.87451 0.678431 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="-0.0708549 1.12963 0.376847" rpy="2.53073 -0 -1.5708" />
-			<geometry>
-				<xacro:sidedowel_mesh></xacro:sidedowel_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="-0.0704588 1.0166 0.558811" rpy="0 -0 0" />
@@ -153,12 +134,6 @@
 				<color rgba="0.4 0.388235 0.34902 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="-0.0704588 1.0166 0.558811" rpy="0 -0 0" />
-			<geometry>
-				<xacro:antenna_mesh></xacro:antenna_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.240157 1.12963 0.380177" rpy="0.610865 5.55112e-17 -1.5708" />
@@ -169,12 +144,6 @@
 				<color rgba="0.972549 0.529412 0.00392157 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.240157 1.12963 0.380177" rpy="0.610865 5.55112e-17 -1.5708" />
-			<geometry>
-				<xacro:vdowel_mesh></xacro:vdowel_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.0819412 0.935955 0.401966" rpy="4.36955e-14 2.06286e-14 1.36592e-16" />
@@ -185,12 +154,6 @@
 				<color rgba="0.615686 0.811765 0.929412 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.0819412 0.935955 0.401966" rpy="4.36955e-14 2.06286e-14 1.36592e-16" />
-			<geometry>
-				<xacro:cargohold_mesh></xacro:cargohold_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="-0.0704588 0.7118 0.558811" rpy="0 -0 0" />
@@ -201,12 +164,6 @@
 				<color rgba="0.4 0.388235 0.34902 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="-0.0704588 0.7118 0.558811" rpy="0 -0 0" />
-			<geometry>
-				<xacro:antenna_mesh></xacro:antenna_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.289365 1.12963 0.537786" rpy="1.5708 0.290161 -3.89362e-17" />
@@ -217,12 +174,6 @@
 				<color rgba="0.941176 0.87451 0.678431 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.289365 1.12963 0.537786" rpy="1.5708 0.290161 -3.89362e-17" />
-			<geometry>
-				<xacro:sidedowel2_mesh></xacro:sidedowel2_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.0819412 1.004 0.338466" rpy="3.14159 -0 1.5708" />
@@ -233,12 +184,6 @@
 				<color rgba="0 0.00784314 0.027451 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.0819412 1.004 0.338466" rpy="3.14159 -0 1.5708" />
-			<geometry>
-				<xacro:brushlessmotor_mesh></xacro:brushlessmotor_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.234956 1.12963 0.376535" rpy="2.53073 -0 1.5708" />
@@ -249,12 +194,6 @@
 				<color rgba="0.941176 0.87451 0.678431 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.234956 1.12963 0.376535" rpy="2.53073 -0 1.5708" />
-			<geometry>
-				<xacro:sidedowel_mesh></xacro:sidedowel_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.0819412 1.18022 0.574781" rpy="1.45652e-14 6.8762e-15 1.36592e-16" />
@@ -265,13 +204,6 @@
 				<color rgba="0.980392 0.713725 0.00392157 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.0819412 1.18022 0.574781" rpy="1.45652e-14 6.8762e-15 1.36592e-16" />
-			<geometry>
-				<xacro:servomount_mesh></xacro:servomount_mesh>
-			</geometry>
-
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.234341 0.7118 0.558811" rpy="0 -0 0" />
@@ -282,12 +214,6 @@
 				<color rgba="0.4 0.388235 0.34902 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.234341 0.7118 0.558811" rpy="0 -0 0" />
-			<geometry>
-				<xacro:antenna_mesh></xacro:antenna_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="0.0819412 1.13122 0.260168" rpy="3.14159 -5.55112e-17 3.14159" />
@@ -298,12 +224,6 @@
 				<color rgba="0.941176 0.87451 0.678431 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="0.0819412 1.13122 0.260168" rpy="3.14159 -5.55112e-17 3.14159" />
-			<geometry>
-				<xacro:basedowel_mesh></xacro:basedowel_mesh>
-			</geometry>
-		</collision> -->
 
 		<visual>
 			<origin xyz="-0.125264 1.12963 0.538098" rpy="1.5708 0.290161 3.14159" />
@@ -314,12 +234,6 @@
 				<color rgba="0.941176 0.87451 0.678431 1.0" />
 			</material>
 		</visual>
-		<!-- <collision>
-			<origin xyz="-0.125264 1.12963 0.538098" rpy="1.5708 0.290161 3.14159" />
-			<geometry>
-				<xacro:sidedowel2_mesh></xacro:sidedowel2_mesh>
-			</geometry>
-		</collision> -->
 
 		<inertial>
 			<origin xyz="0.0819416 0.933985 0.432327" rpy="0 0 0" />
@@ -377,4 +291,4 @@
 		</inertial>
 	</link>
 
-</robot>
+</robot> -->
