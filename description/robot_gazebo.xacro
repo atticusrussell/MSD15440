@@ -17,7 +17,7 @@
     <gazebo reference="base_link">
         <material>Gazebo/DarkGrey  </material>
     </gazebo>
-    <gazebo reference="staticrobot">
+    <gazebo reference="hull">
         <material>Gazebo/Blue</material>
     </gazebo>   
     <gazebo reference="propeller">
