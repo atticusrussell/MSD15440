@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+	<!-- Include meshes -->
+	<xacro:macro name="thirtydegsplitter_mesh">
+		<mesh filename="package://msd_bot/meshes/30degsplitter.stl"/>
+    </xacro:macro>
+
+	<xacro:macro name="antenna_mesh">
+        <mesh filename="package://msd_bot/meshes/antenna.stl"  />
+    </xacro:macro>
+
+	<xacro:macro name="basedowel_mesh">
+        <mesh filename="package://msd_bot/meshes/basedowel.stl"  />
+    </xacro:macro>
+
+	<xacro:macro name="brushlessmotor_mesh">
+		<mesh filename="package://msd_bot/meshes/brushlessmotor.stl"  />
+	</xacro:macro>
+
+    <xacro:macro name="cargohold_mesh">
+        <mesh filename="package://msd_bot/meshes/cargohold.stl"  />
+    </xacro:macro>
+
+    <xacro:macro name="hull_mesh">
+        <mesh filename="package://msd_bot/meshes/hull.stl"  />
+    </xacro:macro>
+
+	<xacro:macro name="hullcover_mesh">
+		<mesh filename="package://msd_bot/meshes/hullcover.stl"  />
+	</xacro:macro>
+
+	<xacro:macro name="propeller_mesh">
+		<mesh filename="package://msd_bot/meshes/propeller.stl"  />
+	</xacro:macro>
+
+	<xacro:macro name="rudder_mesh">
+		<mesh filename="package://msd_bot/meshes/rudder.stl"  />
+	</xacro:macro>
+
+	<xacro:macro name="rudderbottommount_mesh">
+		<mesh filename="package://msd_bot/meshes/rudderbottommount.stl"  />
+	</xacro:macro>
+
+	<xacro:macro name="servo_mesh">
+		<mesh filename="package://msd_bot/meshes/servo.stl"  />
+	</xacro:macro>
+
+	<xacro:macro name="servomount_mesh">
+		<mesh filename="package://msd_bot/meshes/servomount.stl"  />
+	</xacro:macro>
+
+	<xacro:macro name="sidedowel_mesh">
+		<mesh filename="package://msd_bot/meshes/sidedowel.stl"  />
+	</xacro:macro>
+
+	<xacro:macro name="sidedowel2_mesh">
+		<mesh filename="package://msd_bot/meshes/sidedowel2.stl"  />
+	</xacro:macro>
+
+	<xacro:macro name="vdowel_mesh">
+		<mesh filename="package://msd_bot/meshes/vdowelconnector.stl"  />
+	</xacro:macro>
+
+
+    <!-- Specify some standard inertial calculations https://en.wikipedia.org/wiki/List_of_moments_of_inertia -->
+    <!-- These make use of xacro's mathematical functionality -->
+
+    <xacro:macro name="inertial_sphere" params="mass radius *origin">
+        <inertial>
+            <xacro:insert_block name="origin"/>
+            <mass value="${mass}" />
+            <inertia ixx="${(2/5) * mass * (radius*radius)}" ixy="0.0" ixz="0.0"
+                    iyy="${(2/5) * mass * (radius*radius)}" iyz="0.0"
+                    izz="${(2/5) * mass * (radius*radius)}" />
+        </inertial>
+    </xacro:macro>  
+
+
+    <xacro:macro name="inertial_box" params="mass x y z *origin">
+        <inertial>
+            <xacro:insert_block name="origin"/>
+            <mass value="${mass}" />
+            <inertia ixx="${(1/12) * mass * (y*y+z*z)}" ixy="0.0" ixz="0.0"
+                    iyy="${(1/12) * mass * (x*x+z*z)}" iyz="0.0"
+                    izz="${(1/12) * mass * (x*x+y*y)}" />
+        </inertial>
+    </xacro:macro>
+
+
+    <xacro:macro name="inertial_cylinder" params="mass length radius *origin">
+        <inertial>
+            <xacro:insert_block name="origin"/>
+            <mass value="${mass}" />
+            <inertia ixx="${(1/12) * mass * (3*radius*radius + length*length)}" ixy="0.0" ixz="0.0"
+                    iyy="${(1/12) * mass * (3*radius*radius + length*length)}" iyz="0.0"
+                    izz="${(1/2) * mass * (radius*radius)}" />
+        </inertial>
+    </xacro:macro>
+
+
+</robot>

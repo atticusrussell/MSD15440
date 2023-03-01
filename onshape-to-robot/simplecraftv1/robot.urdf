@@ -1,22 +1,15 @@
-<?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="msd_bot">
-
-<!-- NOTE that ROS2 VSCode requires package://msd_bot for URDF \
-	preview instad of file://$(find msd_bot) but that breaks Gazebo -->
-
+<robot name="onshape">
 	<link name="base_link"></link>
-
 	<joint name="base_link_to_base" type="fixed">
 		<parent link="base_link" />
 		<child link="hullassm" />
 		<origin rpy="0.0 0 0" xyz="0 0 0" />
 	</joint>
-	
 	<link name="hullassm">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="file://$(find msd_bot)/meshes/hullassm.stl" />
+				<mesh filename="package://msd_bot/hullassm_visual.stl" />
 			</geometry>
 			<material name="hullassm_material">
 				<color rgba="0.24291 0.244006 0.250091 1.0" />
@@ -25,8 +18,11 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="file://$(find msd_bot)/meshes/hullassm.stl" />
+				<mesh filename="package://msd_bot/hullassm_collision.stl" />
 			</geometry>
+			<material name="hullassm_material">
+				<color rgba="0.5 0.5 0.5 1.0" />
+			</material>
 		</collision>
 		<inertial>
 			<origin xyz="1.0307e-06 0.188008 0.124094" rpy="0 0 0" />
@@ -36,15 +32,11 @@
 		</inertial>
 	</link>
 
-	<gazebo reference="hullassm">
-        <material>Gazebo/DarkGrey  </material>
-    </gazebo>
-
 	<link name="propeller">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="file://$(find msd_bot)/meshes/propeller.stl" />
+				<mesh filename="package://msd_bot/propeller_visual.stl" />
 			</geometry>
 			<material name="propeller_material">
 				<color rgba="0.682353 0.333333 0.737255 1.0" />
@@ -53,8 +45,11 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="file://$(find msd_bot)/meshes/propeller.stl" />
+				<mesh filename="package://msd_bot/propeller_collision.stl" />
 			</geometry>
+			<material name="propeller_material">
+				<color rgba="0.5 0.5 0.5 1.0" />
+			</material>
 		</collision>
 		<inertial>
 			<origin xyz="1.6644e-07 -8.74972e-08 -0.00131544" rpy="0 0 0" />
@@ -64,11 +59,7 @@
 		</inertial>
 	</link>
 
-	<gazebo reference="propeller">
-        <material>Gazebo/Purple  </material>
-    </gazebo>
-
-	<joint name="propeller_shaft" type="continuous">
+	<joint name="propeller_shaft" type="revolute">
 		<origin xyz="-2.11292e-18 0.385445 0.0889" rpy="1.5708 -0.187437 -3.49069e-15" />
 		<parent link="hullassm" />
 		<child link="propeller" />
@@ -81,7 +72,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="file://$(find msd_bot)/meshes/topassm.stl" />
+				<mesh filename="package://msd_bot/topassm_visual.stl" />
 			</geometry>
 			<material name="topassm_material">
 				<color rgba="0.780424 0.75747 0.695877 1.0" />
@@ -90,8 +81,11 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="file://$(find msd_bot)/meshes/topassm.stl" />
+				<mesh filename="package://msd_bot/topassm_collision.stl" />
 			</geometry>
+			<material name="topassm_material">
+				<color rgba="0.5 0.5 0.5 1.0" />
+			</material>
 		</collision>
 		<inertial>
 			<origin xyz="0.2286 -0.367849 0.00346183" rpy="0 0 0" />
@@ -100,10 +94,6 @@
 				iyz="-7.66504e-05" izz="0.0417123" />
 		</inertial>
 	</link>
-
-	<gazebo reference="topassm">
-        <material>Gazebo/White </material>
-    </gazebo>
 
 	<joint name="hull_cover" type="fixed">
 		<origin xyz="-0.2286 0.360045 0.3048" rpy="0 3.08149e-32 -4.62274e-32" />
@@ -118,7 +108,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="file://$(find msd_bot)/meshes/servocargoassm.stl" />
+				<mesh filename="package://msd_bot/servocargoassm_visual.stl" />
 			</geometry>
 			<material name="servocargoassm_material">
 				<color rgba="0.621357 0.806496 0.907144 1.0" />
@@ -127,8 +117,11 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="file://$(find msd_bot)/meshes/servocargoassm.stl" />
+				<mesh filename="package://msd_bot/servocargoassm_collision.stl" />
 			</geometry>
+			<material name="servocargoassm_material">
+				<color rgba="0.5 0.5 0.5 1.0" />
+			</material>
 		</collision>
 		<inertial>
 			<origin xyz="-2.57314e-10 0.0877782 -0.220495" rpy="0 0 0" />
@@ -138,15 +131,11 @@
 		</inertial>
 	</link>
 
-	<gazebo reference="servocargoassm">
-        <material>Gazebo/Blue  </material>
-    </gazebo>
-
 	<link name="rudder">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="file://$(find msd_bot)/meshes/rudder.stl" />
+				<mesh filename="package://msd_bot/rudder_visual.stl" />
 			</geometry>
 			<material name="rudder_material">
 				<color rgba="0.980392 0.796078 0.262745 1.0" />
@@ -155,8 +144,11 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="file://$(find msd_bot)/meshes/rudder.stl" />
+				<mesh filename="package://msd_bot/rudder_collision.stl" />
 			</geometry>
+			<material name="rudder_material">
+				<color rgba="0.5 0.5 0.5 1.0" />
+			</material>
 		</collision>
 		<inertial>
 			<origin xyz="1.73472e-17 0.00323547 -0.179304" rpy="0 0 0" />
@@ -166,12 +158,8 @@
 		</inertial>
 	</link>
 
-	<gazebo reference="rudder">
-        <material>Gazebo/Yellow  </material>
-    </gazebo>
-
-	<joint name="servo_rudder" type="continuous">
-		<origin xyz="3.43338e-16 -0.005715 0.074295" rpy="1.5708 0 -1.03735e-13" />
+	<joint name="servo_rudder" type="revolute">
+		<origin xyz="3.43338e-16 -0.005715 0.074295" rpy="1.5708 1.43827 -1.03735e-13" />
 		<parent link="servocargoassm" />
 		<child link="rudder" />
 		<axis xyz="0 0 1" />
@@ -186,5 +174,7 @@
 		<axis xyz="0 0 1" />
 		<limit effort="1" velocity="20" />
 		<joint_properties friction="0.0" />
-	</joint> 
+	</joint>
+
+
 </robot>
