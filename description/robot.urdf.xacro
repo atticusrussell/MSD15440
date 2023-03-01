@@ -1,13 +1,170 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro"  name="msd_bot">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="msd_bot">
 
-    <!-- ***************  CONFIGURE ROBOT'S LINKS  *******************-->
-    <xacro:include filename="robot_urdf_links.xacro" /> 
+<!-- ***************  provide info for Gz  *******************-->
+	<!-- <xacro:include filename="robot_gazebo.xacro" /> -->
 
-    <!-- ***************  CONFIGURE ROBOT'S JOINTS  *******************-->
-    <xacro:include filename="robot_urdf_joints.xacro" /> 
+	<link name="base_link"></link>
 
-	<!-- ***************  provide info for Gz  *******************-->
-	<xacro:include filename="robot_gazebo.xacro" /> 
+	<joint name="base_link_to_base" type="fixed">
+		<parent link="base_link" />
+		<child link="hullassm" />
+		<origin rpy="0.0 0 0" xyz="0 0 0" />
+	</joint>
+	
+	<link name="hullassm">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 -0 0" />
+			<geometry>
+				<mesh filename="package://msd_bot/meshes/hullassm.stl" />
+			</geometry>
+			<material name="hullassm_material">
+				<color rgba="0.24291 0.244006 0.250091 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 -0 0" />
+			<geometry>
+				<mesh filename="package://msd_bot/meshes/hullassm.stl" />
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="1.0307e-06 0.188008 0.124094" rpy="0 0 0" />
+			<mass value="6.29782" />
+			<inertia ixx="0.216502" ixy="-1.02604e-06" ixz="1.28468e-06" iyy="0.0821502"
+				iyz="0.0297739" izz="0.237496" />
+		</inertial>
+	</link>
 
+	<link name="propeller">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 -0 0" />
+			<geometry>
+				<mesh filename="package://msd_bot/meshes/propeller.stl" />
+			</geometry>
+			<material name="propeller_material">
+				<color rgba="0.682353 0.333333 0.737255 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 -0 0" />
+			<geometry>
+				<mesh filename="package://msd_bot/meshes/propeller.stl" />
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="1.6644e-07 -8.74972e-08 -0.00131544" rpy="0 0 0" />
+			<mass value="0.0252682" />
+			<inertia ixx="1.02998e-05" ixy="4.84789e-11" ixz="7.4214e-11" iyy="1.02998e-05"
+				iyz="5.65357e-11" izz="1.394e-05" />
+		</inertial>
+	</link>
+
+	<joint name="propeller_shaft" type="continuous">
+		<origin xyz="-2.11292e-18 0.385445 0.0889" rpy="1.5708 -0.187437 -3.49069e-15" />
+		<parent link="hullassm" />
+		<child link="propeller" />
+		<axis xyz="0 0 1" />
+		<limit effort="1" velocity="20" />
+		<joint_properties friction="0.0" />
+	</joint>
+
+	<link name="topassm">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 -0 0" />
+			<geometry>
+				<mesh filename="package://msd_bot/meshes/topassm.stl" />
+			</geometry>
+			<material name="topassm_material">
+				<color rgba="0.780424 0.75747 0.695877 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 -0 0" />
+			<geometry>
+				<mesh filename="package://msd_bot/meshes/topassm.stl" />
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="0.2286 -0.367849 0.00346183" rpy="0 0 0" />
+			<mass value="0.69925" />
+			<inertia ixx="0.028029" ixy="-2.71051e-19" ixz="-2.03288e-20" iyy="0.0137782"
+				iyz="-7.66504e-05" izz="0.0417123" />
+		</inertial>
+	</link>
+
+	<joint name="hull_cover" type="fixed">
+		<origin xyz="-0.2286 0.360045 0.3048" rpy="0 3.08149e-32 -4.62274e-32" />
+		<parent link="hullassm" />
+		<child link="topassm" />
+		<axis xyz="0 0 1" />
+		<limit effort="1" velocity="20" />
+		<joint_properties friction="0.0" />
+	</joint>
+
+	<link name="servocargoassm">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 -0 0" />
+			<geometry>
+				<mesh filename="package://msd_bot/meshes/servocargoassm.stl" />
+			</geometry>
+			<material name="servocargoassm_material">
+				<color rgba="0.621357 0.806496 0.907144 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 -0 0" />
+			<geometry>
+				<mesh filename="package://msd_bot/meshes/servocargoassm.stl" />
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="-2.57314e-10 0.0877782 -0.220495" rpy="0 0 0" />
+			<mass value="8.22292" />
+			<inertia ixx="0.17107" ixy="-2.11808e-10" ixz="6.43831e-10" iyy="0.215272"
+				iyz="0.00150393" izz="0.0855135" />
+		</inertial>
+	</link>
+
+	<link name="rudder">
+		<visual>
+			<origin xyz="0 0 0" rpy="0 -0 0" />
+			<geometry>
+				<mesh filename="package://msd_bot/meshes/rudder.stl" />
+			</geometry>
+			<material name="rudder_material">
+				<color rgba="0.980392 0.796078 0.262745 1.0" />
+			</material>
+		</visual>
+		<collision>
+			<origin xyz="0 0 0" rpy="0 -0 0" />
+			<geometry>
+				<mesh filename="package://msd_bot/meshes/rudder.stl" />
+			</geometry>
+		</collision>
+		<inertial>
+			<origin xyz="1.73472e-17 0.00323547 -0.179304" rpy="0 0 0" />
+			<mass value="0.0651203" />
+			<inertia ixx="0.000500832" ixy="3.75168e-21" ixz="6.55605e-23" iyy="0.00049688"
+				iyz="1.16286e-05" izz="4.87634e-06" />
+		</inertial>
+	</link>
+
+	<joint name="servo_rudder" type="continuous">
+		<origin xyz="3.43338e-16 -0.005715 0.074295" rpy="1.5708 1.43827 -1.03735e-13" />
+		<parent link="servocargoassm" />
+		<child link="rudder" />
+		<axis xyz="0 0 1" />
+		<limit effort="1" velocity="20" />
+		<joint_properties friction="0.0" />
+	</joint>
+
+	<joint name="hull_cargo" type="fixed">
+		<origin xyz="-2.77556e-17 0.3556 0.3048" rpy="-1.5708 -0 -4.62274e-32" />
+		<parent link="hullassm" />
+		<child link="servocargoassm" />
+		<axis xyz="0 0 1" />
+		<limit effort="1" velocity="20" />
+		<joint_properties friction="0.0" />
+	</joint> 
 </robot>
