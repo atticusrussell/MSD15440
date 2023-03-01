@@ -3,5 +3,6 @@
     "outputFormat": "urdf",
 	"assemblyName": "Robot",
 	"addDummyBaseLink": "true",
-	"packageName": "msd_bot"
+	"packageName": "msd_bot",
+	"mergeSTLs": "all"
 }
