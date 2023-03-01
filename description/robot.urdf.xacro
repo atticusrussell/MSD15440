@@ -14,7 +14,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="package://msd_bot/meshes/hullassm.stl" />
+				<mesh filename="file://$(find msd_bot)/meshes/hullassm.stl" />
 			</geometry>
 			<material name="hullassm_material">
 				<color rgba="0.24291 0.244006 0.250091 1.0" />
@@ -23,7 +23,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="package://msd_bot/meshes/hullassm.stl" />
+				<mesh filename="file://$(find msd_bot)/meshes/hullassm.stl" />
 			</geometry>
 		</collision>
 		<inertial>
@@ -42,7 +42,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="package://msd_bot/meshes/propeller.stl" />
+				<mesh filename="file://$(find msd_bot)/meshes/propeller.stl" />
 			</geometry>
 			<material name="propeller_material">
 				<color rgba="0.682353 0.333333 0.737255 1.0" />
@@ -51,7 +51,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="package://msd_bot/meshes/propeller.stl" />
+				<mesh filename="file://$(find msd_bot)/meshes/propeller.stl" />
 			</geometry>
 		</collision>
 		<inertial>
@@ -79,7 +79,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="package://msd_bot/meshes/topassm.stl" />
+				<mesh filename="file://$(find msd_bot)/meshes/topassm.stl" />
 			</geometry>
 			<material name="topassm_material">
 				<color rgba="0.780424 0.75747 0.695877 1.0" />
@@ -88,7 +88,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="package://msd_bot/meshes/topassm.stl" />
+				<mesh filename="file://$(find msd_bot)/meshes/topassm.stl" />
 			</geometry>
 		</collision>
 		<inertial>
@@ -116,7 +116,7 @@
 		<visual>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="package://msd_bot/meshes/servocargoassm.stl" />
+				<mesh filename="file://msd_bot/meshes/servocargoassm.stl" />
 			</geometry>
 			<material name="servocargoassm_material">
 				<color rgba="0.621357 0.806496 0.907144 1.0" />
@@ -125,7 +125,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="package://msd_bot/meshes/servocargoassm.stl" />
+				<mesh filename="file://msd_bot/meshes/servocargoassm.stl" />
 			</geometry>
 		</collision>
 		<inertial>
@@ -137,14 +137,14 @@
 	</link>
 
 	<gazebo reference="servocargoassm">
-        <material>Gazebo/LightBlue  </material>
+        <material>Gazebo/Blue  </material>
     </gazebo>
 
 	<link name="rudder">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="package://msd_bot/meshes/rudder.stl" />
+				<mesh filename="file://$(find msd_bot)/meshes/rudder.stl" />
 			</geometry>
 			<material name="rudder_material">
 				<color rgba="0.980392 0.796078 0.262745 1.0" />
@@ -153,7 +153,7 @@
 		<collision>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
 			<geometry>
-				<mesh filename="package://msd_bot/meshes/rudder.stl" />
+				<mesh filename="file://$(find msd_bot)/meshes/rudder.stl" />
 			</geometry>
 		</collision>
 		<inertial>
