@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="msd_bot">
 
-<!-- ***************  provide info for Gz  *******************-->
-	<!-- <xacro:include filename="robot_gazebo.xacro" /> -->
 
 	<link name="base_link"></link>
 
@@ -36,6 +34,10 @@
 		</inertial>
 	</link>
 
+	<gazebo reference="hullassm">
+        <material>Gazebo/DarkGrey  </material>
+    </gazebo>
+
 	<link name="propeller">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
@@ -59,6 +61,10 @@
 				iyz="5.65357e-11" izz="1.394e-05" />
 		</inertial>
 	</link>
+
+	<gazebo reference="propeller">
+        <material>Gazebo/Purple  </material>
+    </gazebo>
 
 	<joint name="propeller_shaft" type="continuous">
 		<origin xyz="-2.11292e-18 0.385445 0.0889" rpy="1.5708 -0.187437 -3.49069e-15" />
@@ -93,6 +99,10 @@
 		</inertial>
 	</link>
 
+	<gazebo reference="topassm">
+        <material>Gazebo/White </material>
+    </gazebo>
+
 	<joint name="hull_cover" type="fixed">
 		<origin xyz="-0.2286 0.360045 0.3048" rpy="0 3.08149e-32 -4.62274e-32" />
 		<parent link="hullassm" />
@@ -126,6 +136,10 @@
 		</inertial>
 	</link>
 
+	<gazebo reference="servocargoassm">
+        <material>Gazebo/LightBlue  </material>
+    </gazebo>
+
 	<link name="rudder">
 		<visual>
 			<origin xyz="0 0 0" rpy="0 -0 0" />
@@ -149,6 +163,10 @@
 				iyz="1.16286e-05" izz="4.87634e-06" />
 		</inertial>
 	</link>
+
+	<gazebo reference="rudder">
+        <material>Gazebo/Yellow  </material>
+    </gazebo>
 
 	<joint name="servo_rudder" type="continuous">
 		<origin xyz="3.43338e-16 -0.005715 0.074295" rpy="1.5708 1.43827 -1.03735e-13" />
